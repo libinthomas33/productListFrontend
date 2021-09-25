@@ -1,9 +1,24 @@
 <div style="margin-top: 100px;">
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-        <label for="category-name">Category Name: </label>
-        <input id="category-name" type="text" formControlName="categoryName">
+        <label for="categoryName">Category Name: </label>
+        <input id="categoryName" type="text" formControlName="categoryName" required>
         <br/><br/>
+        <label for="isparent">Is Parent: </label>
+        <select (change)="changeParent($event)" formControlName="isparent" required>
+            <option value="" disabled>Select parent type</option>
+            <option [ngValue]='0'>Yes</option>
+            <option [ngValue]='1'>No</option>
+         </select>
+        <br/><br/>
+        <ng-container *ngIf="isparentDisp=='1'">
+            <label for="selectParentid">Select Parent: </label>
+            <select (change)="selectParent($event)" formControlName="selectParentid" required>
+                <option value="" disabled>Select Parent</option>
+                <option [value]="i._id" *ngFor="let i of parents">{{i.categoryName}}</option>
+            </select>
+        <br/><br/>
+        </ng-container>
         <button type="submit" [disabled]="!profileForm.valid">Submit</button>
     </form>
 

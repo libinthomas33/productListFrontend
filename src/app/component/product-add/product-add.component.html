@@ -1,0 +1,17 @@
+<div style="margin-top: 100px;">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <label for="productName">Product Name: </label>
+        <input id="productName" type="text" formControlName="productName" required>
+        <br/><br/>
+       
+        <label for="category_id">Select Sub Category: </label>
+        <select (change)="selectCategory($event)" formControlName="category_id" required>
+            <option value="" disabled>Select Sub Category</option>
+            <option [value]="i._id" *ngFor="let i of subcategory">{{i.categoryName}}</option>
+        </select>
+        <br/><br/>
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+
+</div>
