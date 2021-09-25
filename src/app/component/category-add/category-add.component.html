@@ -1,0 +1,10 @@
+<div style="margin-top: 100px;">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <label for="category-name">Category Name: </label>
+        <input id="category-name" type="text" formControlName="categoryName">
+        <br/><br/>
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+
+</div>
