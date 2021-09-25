@@ -1,13 +1,13 @@
-<h2>Products List</h2>
+<h2>Category List</h2>
 
 <ng-container *ngIf="cat_sub_arr && cat_sub_arr.length>0">
     <dl>
         <ng-container *ngFor="let cat of cat_sub_arr">
-            <dt>{{cat.categoryName}}</dt>
+            <li>{{cat.categoryName}}</li>
             
-            <ng-container ng-repeat="sub in cat.subCategories">
+            <!-- <ng-container ng-repeat="sub in cat.subCategories">
                 <dd>- {{sub.categoryName}}</dd>
-            </ng-container>
+            </ng-container> -->
         </ng-container>
       </dl>
 </ng-container>
